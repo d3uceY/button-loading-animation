@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading Button</title>
+    <style>
+        body{
+            background-image: url(/468645.jpg);
+            background-size: cover;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .btn{
+            color: white;
+            background: black;
+            outline: none;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-transform: capitalize;
+            position: relative;
+            font-size: 40px;
+        }
+
+        .btn:active{
+           background: green;
+        }
+
+        .btn-loading>.text{
+           visibility: hidden;
+           opacity: 0;
+        }
+
+        .btn-loading:before{
+          content: '';
+          border: 4px solid transparent;
+          border-top-color: white;
+          border-radius: 50%;
+          position: absolute;
+          height: 16px;
+          width: 16px;
+          inset: 0;      
+          margin: auto;
+          animation: loading 1s  infinite;
+        }
+
+        @keyframes loading {
+            from {
+              transform: rotate(0turn);
+            }
+
+            to {
+              transform: rotate(1turn);
+            } 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn">
+            <div class="text">submit</div>
+        </button>
+    </div>
+
+    <script>
+        const button = document.querySelector('.btn');
+        
+        button.addEventListener('click', () => {
+          button.classList.toggle('btn-loading')
+        } )
+    </script>
+</body>
+</html>
